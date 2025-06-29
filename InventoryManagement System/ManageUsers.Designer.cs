@@ -32,16 +32,17 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
+            UnameTb = new TextBox();
+            PasswordTb = new TextBox();
+            TelephoneTb = new TextBox();
+            FnameTb = new TextBox();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            button1 = new Button();
+            button6 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -49,6 +50,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Crimson;
+            panel1.Controls.Add(button6);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -89,61 +91,50 @@
             label1.Size = new Size(283, 54);
             label1.TabIndex = 0;
             label1.Text = "Manage User ";
+            label1.Click += label1_Click;
             // 
-            // textBox1
+            // UnameTb
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.ForeColor = Color.Crimson;
-            textBox1.Location = new Point(26, 157);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(322, 34);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "UserName";
+            UnameTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            UnameTb.ForeColor = Color.Crimson;
+            UnameTb.Location = new Point(26, 157);
+            UnameTb.Name = "UnameTb";
+            UnameTb.Size = new Size(322, 34);
+            UnameTb.TabIndex = 1;
+            UnameTb.Text = "UserName";
+            UnameTb.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // PasswordTb
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.ForeColor = Color.Crimson;
-            textBox2.Location = new Point(26, 258);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(322, 34);
-            textBox2.TabIndex = 2;
-            textBox2.Text = "Password";
-            textBox2.TextChanged += textBox2_TextChanged;
+            PasswordTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            PasswordTb.ForeColor = Color.Crimson;
+            PasswordTb.Location = new Point(26, 258);
+            PasswordTb.Name = "PasswordTb";
+            PasswordTb.Size = new Size(322, 34);
+            PasswordTb.TabIndex = 2;
+            PasswordTb.Text = "Password";
+            PasswordTb.TextChanged += textBox2_TextChanged;
             // 
-            // textBox3
+            // TelephoneTb
             // 
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox3.ForeColor = Color.Crimson;
-            textBox3.Location = new Point(26, 310);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(322, 34);
-            textBox3.TabIndex = 3;
-            textBox3.Text = "Telephone";
-            textBox3.TextChanged += textBox3_TextChanged;
+            TelephoneTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            TelephoneTb.ForeColor = Color.Crimson;
+            TelephoneTb.Location = new Point(26, 310);
+            TelephoneTb.Name = "TelephoneTb";
+            TelephoneTb.Size = new Size(322, 34);
+            TelephoneTb.TabIndex = 3;
+            TelephoneTb.Text = "Telephone";
+            TelephoneTb.TextChanged += textBox3_TextChanged;
             // 
-            // textBox4
+            // FnameTb
             // 
-            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox4.ForeColor = Color.Crimson;
-            textBox4.Location = new Point(26, 208);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(322, 34);
-            textBox4.TabIndex = 4;
-            textBox4.Text = "FullName";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Crimson;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(26, 365);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 46);
-            button1.TabIndex = 5;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = false;
+            FnameTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            FnameTb.ForeColor = Color.Crimson;
+            FnameTb.Location = new Point(26, 208);
+            FnameTb.Name = "FnameTb";
+            FnameTb.Size = new Size(322, 34);
+            FnameTb.TabIndex = 4;
+            FnameTb.Text = "FullName";
             // 
             // button2
             // 
@@ -203,6 +194,34 @@
             panel2.Size = new Size(1301, 37);
             panel2.TabIndex = 10;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Crimson;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(26, 365);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 46);
+            button1.TabIndex = 5;
+            button1.Text = "Add";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.Crimson;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button6.ForeColor = Color.White;
+            button6.Location = new Point(26, 69);
+            button6.Name = "button6";
+            button6.Size = new Size(296, 46);
+            button6.TabIndex = 7;
+            button6.Text = "Test database connect";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
             // ManageUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -214,10 +233,10 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(FnameTb);
+            Controls.Add(TelephoneTb);
+            Controls.Add(PasswordTb);
+            Controls.Add(UnameTb);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ManageUsers";
@@ -236,15 +255,16 @@
         private Label label2;
         private Label label1;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
+        private TextBox UnameTb;
+        private TextBox PasswordTb;
+        private TextBox TelephoneTb;
+        private TextBox FnameTb;
         private Button button2;
         private Button button3;
         private Button button4;
         private DataGridView dataGridView1;
         private Panel panel2;
+        private Button button6;
+        private Button button1;
     }
 }
