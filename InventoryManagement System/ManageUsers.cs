@@ -21,9 +21,42 @@ namespace InventoryManagement_System
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-B6S9L8P\SQLEXPRESS;Initial Catalog=inventorymgdb;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;");
 
+        private void dataGridStyle()
+        {
+            UsersGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            UsersGV.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            UsersGV.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            UsersGV.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            UsersGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            UsersGV.RowHeadersVisible = false; 
+            UsersGV.EnableHeadersVisualStyles = false;
+            UsersGV.ColumnHeadersDefaultCellStyle.BackColor = Color.Crimson;
+            UsersGV.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            UsersGV.DefaultCellStyle.SelectionBackColor = Color.LightPink;
+            UsersGV.DefaultCellStyle.SelectionForeColor = Color.Black;
+        }
+        private void populate()
+        {
+            try
+            {
+                con.Open();
+                string query = "SELECT * FROM UserTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                UsersGV.DataSource = ds.Tables[0];
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
         private void ManageUsers_Load(object sender, EventArgs e)
         {
-
+            populate();
+            dataGridStyle();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -87,6 +120,11 @@ namespace InventoryManagement_System
             {
                 MessageBox.Show("❌ Hata: " + ex.Message);
             }
+        }
+
+        private void UsersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

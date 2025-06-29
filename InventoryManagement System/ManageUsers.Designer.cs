@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button6 = new Button();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -39,12 +40,11 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            dataGridView1 = new DataGridView();
+            UsersGV = new DataGridView();
             panel2 = new Panel();
             button1 = new Button();
-            button6 = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)UsersGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -60,6 +60,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1301, 125);
             panel1.TabIndex = 0;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.Crimson;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button6.ForeColor = Color.White;
+            button6.Location = new Point(26, 69);
+            button6.Name = "button6";
+            button6.Size = new Size(296, 46);
+            button6.TabIndex = 7;
+            button6.Text = "Test database connect";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // label3
             // 
@@ -175,15 +189,16 @@
             button4.Text = "Home";
             button4.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // UsersGV
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(381, 157);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(908, 325);
-            dataGridView1.TabIndex = 9;
+            UsersGV.BackgroundColor = Color.White;
+            UsersGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            UsersGV.Location = new Point(381, 157);
+            UsersGV.Name = "UsersGV";
+            UsersGV.RowHeadersWidth = 51;
+            UsersGV.Size = new Size(908, 325);
+            UsersGV.TabIndex = 9;
+            UsersGV.CellContentClick += UsersGV_CellContentClick;
             // 
             // panel2
             // 
@@ -208,27 +223,13 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button6
-            // 
-            button6.BackColor = Color.Crimson;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(26, 69);
-            button6.Name = "button6";
-            button6.Size = new Size(296, 46);
-            button6.TabIndex = 7;
-            button6.Text = "Test database connect";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
-            // 
             // ManageUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1301, 557);
             Controls.Add(panel2);
-            Controls.Add(dataGridView1);
+            Controls.Add(UsersGV);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -244,7 +245,7 @@
             Load += ManageUsers_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)UsersGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -262,7 +263,7 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private DataGridView dataGridView1;
+        private DataGridView UsersGV;
         private Panel panel2;
         private Button button6;
         private Button button1;
