@@ -37,9 +37,9 @@
             PasswordTb = new TextBox();
             TelephoneTb = new TextBox();
             FnameTb = new TextBox();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            EditBt = new Button();
+            DeleteBt = new Button();
+            HomeBt = new Button();
             UsersGV = new DataGridView();
             panel2 = new Panel();
             button1 = new Button();
@@ -150,44 +150,46 @@
             FnameTb.TabIndex = 4;
             FnameTb.Text = "FullName";
             // 
-            // button2
+            // EditBt
             // 
-            button2.BackColor = Color.Crimson;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(135, 365);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 46);
-            button2.TabIndex = 6;
-            button2.Text = "Edit";
-            button2.UseVisualStyleBackColor = false;
+            EditBt.BackColor = Color.Crimson;
+            EditBt.FlatAppearance.BorderSize = 0;
+            EditBt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            EditBt.ForeColor = Color.White;
+            EditBt.Location = new Point(135, 365);
+            EditBt.Name = "EditBt";
+            EditBt.Size = new Size(94, 46);
+            EditBt.TabIndex = 6;
+            EditBt.Text = "Edit";
+            EditBt.UseVisualStyleBackColor = false;
+            EditBt.Click += EditBt_Click;
             // 
-            // button3
+            // DeleteBt
             // 
-            button3.BackColor = Color.Crimson;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(254, 365);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 46);
-            button3.TabIndex = 7;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = false;
+            DeleteBt.BackColor = Color.Crimson;
+            DeleteBt.FlatAppearance.BorderSize = 0;
+            DeleteBt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            DeleteBt.ForeColor = Color.White;
+            DeleteBt.Location = new Point(254, 365);
+            DeleteBt.Name = "DeleteBt";
+            DeleteBt.Size = new Size(94, 46);
+            DeleteBt.TabIndex = 7;
+            DeleteBt.Text = "Delete";
+            DeleteBt.UseVisualStyleBackColor = false;
+            DeleteBt.Click += button3_Click;
             // 
-            // button4
+            // HomeBt
             // 
-            button4.BackColor = Color.Crimson;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(135, 436);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 46);
-            button4.TabIndex = 8;
-            button4.Text = "Home";
-            button4.UseVisualStyleBackColor = false;
+            HomeBt.BackColor = Color.Crimson;
+            HomeBt.FlatAppearance.BorderSize = 0;
+            HomeBt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            HomeBt.ForeColor = Color.White;
+            HomeBt.Location = new Point(135, 436);
+            HomeBt.Name = "HomeBt";
+            HomeBt.Size = new Size(94, 46);
+            HomeBt.TabIndex = 8;
+            HomeBt.Text = "Home";
+            HomeBt.UseVisualStyleBackColor = false;
             // 
             // UsersGV
             // 
@@ -230,9 +232,9 @@
             ClientSize = new Size(1301, 557);
             Controls.Add(panel2);
             Controls.Add(UsersGV);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(HomeBt);
+            Controls.Add(DeleteBt);
+            Controls.Add(EditBt);
             Controls.Add(button1);
             Controls.Add(FnameTb);
             Controls.Add(TelephoneTb);
@@ -260,9 +262,9 @@
         private TextBox PasswordTb;
         private TextBox TelephoneTb;
         private TextBox FnameTb;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button EditBt;
+        private Button DeleteBt;
+        private Button HomeBt;
         private DataGridView UsersGV;
         private Panel panel2;
         private Button button6;

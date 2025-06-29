@@ -28,12 +28,14 @@ namespace InventoryManagement_System
             UsersGV.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             UsersGV.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             UsersGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            UsersGV.RowHeadersVisible = false; 
+            UsersGV.RowHeadersVisible = false;
             UsersGV.EnableHeadersVisualStyles = false;
             UsersGV.ColumnHeadersDefaultCellStyle.BackColor = Color.Crimson;
             UsersGV.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             UsersGV.DefaultCellStyle.SelectionBackColor = Color.LightPink;
             UsersGV.DefaultCellStyle.SelectionForeColor = Color.Black;
+            UsersGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            UsersGV.MultiSelect = false;
         }
         private void populate()
         {
@@ -90,6 +92,7 @@ namespace InventoryManagement_System
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("User Added Successfully");
                 con.Close();
+                populate();
             }
             catch (Exception ex)
             {
@@ -124,7 +127,42 @@ namespace InventoryManagement_System
 
         private void UsersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            UnameTb.Text = UsersGV.SelectedRows[0].Cells[0].Value.ToString();
+            FnameTb.Text = UsersGV.SelectedRows[0].Cells[1].Value.ToString();   
+            PasswordTb.Text = UsersGV.SelectedRows[0].Cells[2].Value.ToString();    
+            TelephoneTb.Text = UsersGV.SelectedRows[0].Cells[3].Value.ToString();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (UsersGV.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM UserTbl WHERE Uphone = @Uphone", con);
+                    cmd.Parameters.AddWithValue("@Uphone", UsersGV.SelectedRows[0].Cells[3].Value); // ← Buraya dikkat
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("User Deleted Successfully");
+                    con.Close();
+                    populate(); // listeyi yenile
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen silmek için bir kullanıcı seçin.");
+            }
+
+        }
+
+        private void EditBt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
