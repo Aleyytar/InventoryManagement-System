@@ -128,7 +128,7 @@ namespace InventoryManagement_System
         private void UsersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             UnameTb.Text = UsersGV.SelectedRows[0].Cells[0].Value.ToString();
-            FnameTb.Text = UsersGV.SelectedRows[0].Cells[1].Value.ToString();   
+            FnameTb.Text = UsersGV.SelectedRows[0].Cells[1].Value.ToString();
             PasswordTb.Text = UsersGV.SelectedRows[0].Cells[2].Value.ToString();    
             TelephoneTb.Text = UsersGV.SelectedRows[0].Cells[3].Value.ToString();
 
@@ -162,6 +162,27 @@ namespace InventoryManagement_System
 
         private void EditBt_Click(object sender, EventArgs e)
         {
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE UserTbl SET Uname = @Uname, Ufullname = @Ufullname, Upassword = @Upassword, Uphone = @Uphone WHERE Uphone = @Uphone", con);
+
+                cmd.Parameters.AddWithValue("@Uname", UnameTb.Text);
+                cmd.Parameters.AddWithValue("@Ufullname", FnameTb.Text);
+                cmd.Parameters.AddWithValue("@Upassword", PasswordTb.Text);
+                cmd.Parameters.AddWithValue("@Uphone", TelephoneTb.Text);
+                cmd.Parameters.AddWithValue("@UserId", (TelephoneTb.Text)); // Kullanıcının ID'si telefon number
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("User updated successfully.");
+                con.Close();
+                populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
 
         }
     }

@@ -43,6 +43,7 @@
             UsersGV = new DataGridView();
             panel2 = new Panel();
             button1 = new Button();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UsersGV).BeginInit();
             SuspendLayout();
@@ -195,10 +196,10 @@
             // 
             UsersGV.BackgroundColor = Color.White;
             UsersGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            UsersGV.Location = new Point(381, 157);
+            UsersGV.Location = new Point(364, 174);
             UsersGV.Name = "UsersGV";
             UsersGV.RowHeadersWidth = 51;
-            UsersGV.Size = new Size(908, 325);
+            UsersGV.Size = new Size(907, 308);
             UsersGV.TabIndex = 9;
             UsersGV.CellContentClick += UsersGV_CellContentClick;
             // 
@@ -225,11 +226,23 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.RoyalBlue;
+            label4.Location = new Point(756, 128);
+            label4.Name = "label4";
+            label4.Size = new Size(137, 43);
+            label4.TabIndex = 11;
+            label4.Text = "User List";
+            // 
             // ManageUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1301, 557);
+            Controls.Add(label4);
             Controls.Add(panel2);
             Controls.Add(UsersGV);
             Controls.Add(HomeBt);
@@ -269,5 +282,6 @@
         private Panel panel2;
         private Button button6;
         private Button button1;
+        private Label label4;
     }
 }

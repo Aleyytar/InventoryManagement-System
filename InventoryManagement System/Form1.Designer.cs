@@ -33,11 +33,12 @@
             pictureBox1 = new PictureBox();
             checkBox1 = new CheckBox();
             label3 = new Label();
+            label1 = new Label();
             button1 = new Button();
             textBoxPassword = new TextBox();
             textBoxUsername = new TextBox();
-            label1 = new Label();
             label2 = new Label();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -50,11 +51,11 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(label3);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(textBoxPassword);
             panel1.Controls.Add(textBoxUsername);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(132, 57);
+            panel1.Location = new Point(134, 94);
             panel1.Name = "panel1";
             panel1.Size = new Size(242, 357);
             panel1.TabIndex = 0;
@@ -97,6 +98,17 @@
             label3.Text = "Clear";
             label3.Click += label3_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(75, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 38);
+            label1.TabIndex = 0;
+            label1.Text = "Login";
+            // 
             // button1
             // 
             button1.BackColor = Color.White;
@@ -136,28 +148,30 @@
             textBoxUsername.TabIndex = 1;
             textBoxUsername.Text = "Kullanıcı adı";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(75, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(85, 38);
-            label1.TabIndex = 0;
-            label1.Text = "Login";
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(22, 9);
+            label2.Location = new Point(22, 40);
             label2.Name = "label2";
             label2.Size = new Size(467, 38);
             label2.TabIndex = 1;
             label2.Text = "INVENTORY MANAGEMENT SYSTEM";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label4.ForeColor = Color.DodgerBlue;
+            label4.Location = new Point(463, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(49, 54);
+            label4.TabIndex = 3;
+            label4.Text = "X";
+            label4.Click += label4_Click_1;
             // 
             // Form1
             // 
@@ -165,6 +179,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(512, 463);
+            Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -190,5 +205,6 @@
         private CheckBox checkBox1;
         private Label label3;
         private PictureBox pictureBox1;
+        private Label label4;
     }
 }
