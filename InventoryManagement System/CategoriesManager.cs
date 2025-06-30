@@ -176,5 +176,10 @@ namespace InventoryManagement_System
         {
 
         }
+
+        private void CategoryIdTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

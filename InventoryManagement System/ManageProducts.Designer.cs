@@ -34,11 +34,11 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            CategoryIdTb = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            ProductIdTb = new TextBox();
+            ProductNameTb = new TextBox();
+            ProductQtyTb = new TextBox();
+            ProductPriceTb = new TextBox();
+            ProductDescTb = new TextBox();
             CatBox = new ComboBox();
             button4 = new Button();
             button1 = new Button();
@@ -118,55 +118,56 @@
             panel2.Size = new Size(1383, 23);
             panel2.TabIndex = 4;
             // 
-            // CategoryIdTb
+            // ProductIdTb
             // 
-            CategoryIdTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            CategoryIdTb.ForeColor = Color.Crimson;
-            CategoryIdTb.Location = new Point(12, 188);
-            CategoryIdTb.Name = "CategoryIdTb";
-            CategoryIdTb.Size = new Size(322, 34);
-            CategoryIdTb.TabIndex = 5;
-            CategoryIdTb.Text = "ProductId";
+            ProductIdTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            ProductIdTb.ForeColor = Color.Crimson;
+            ProductIdTb.Location = new Point(12, 188);
+            ProductIdTb.Name = "ProductIdTb";
+            ProductIdTb.Size = new Size(322, 34);
+            ProductIdTb.TabIndex = 5;
+            ProductIdTb.Text = "ProductId";
+            ProductIdTb.TextChanged += ProductIdTb_TextChanged;
             // 
-            // textBox1
+            // ProductNameTb
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.ForeColor = Color.Crimson;
-            textBox1.Location = new Point(12, 238);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(322, 34);
-            textBox1.TabIndex = 6;
-            textBox1.Text = "ProductName";
+            ProductNameTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            ProductNameTb.ForeColor = Color.Crimson;
+            ProductNameTb.Location = new Point(12, 238);
+            ProductNameTb.Name = "ProductNameTb";
+            ProductNameTb.Size = new Size(322, 34);
+            ProductNameTb.TabIndex = 6;
+            ProductNameTb.Text = "ProductName";
             // 
-            // textBox2
+            // ProductQtyTb
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.ForeColor = Color.Crimson;
-            textBox2.Location = new Point(12, 287);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(322, 34);
-            textBox2.TabIndex = 7;
-            textBox2.Text = "ProductQty";
+            ProductQtyTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            ProductQtyTb.ForeColor = Color.Crimson;
+            ProductQtyTb.Location = new Point(12, 287);
+            ProductQtyTb.Name = "ProductQtyTb";
+            ProductQtyTb.Size = new Size(322, 34);
+            ProductQtyTb.TabIndex = 7;
+            ProductQtyTb.Text = "ProductQty";
             // 
-            // textBox3
+            // ProductPriceTb
             // 
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox3.ForeColor = Color.Crimson;
-            textBox3.Location = new Point(12, 336);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(322, 34);
-            textBox3.TabIndex = 8;
-            textBox3.Text = "ProductPrice";
+            ProductPriceTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            ProductPriceTb.ForeColor = Color.Crimson;
+            ProductPriceTb.Location = new Point(12, 336);
+            ProductPriceTb.Name = "ProductPriceTb";
+            ProductPriceTb.Size = new Size(322, 34);
+            ProductPriceTb.TabIndex = 8;
+            ProductPriceTb.Text = "ProductPrice";
             // 
-            // textBox4
+            // ProductDescTb
             // 
-            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox4.ForeColor = Color.Crimson;
-            textBox4.Location = new Point(12, 385);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(322, 34);
-            textBox4.TabIndex = 9;
-            textBox4.Text = "PDescription";
+            ProductDescTb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            ProductDescTb.ForeColor = Color.Crimson;
+            ProductDescTb.Location = new Point(12, 385);
+            ProductDescTb.Name = "ProductDescTb";
+            ProductDescTb.Size = new Size(322, 34);
+            ProductDescTb.TabIndex = 9;
+            ProductDescTb.Text = "PDescription";
             // 
             // CatBox
             // 
@@ -189,8 +190,9 @@
             button4.Name = "button4";
             button4.Size = new Size(94, 46);
             button4.TabIndex = 20;
-            button4.Text = " ";
+            button4.Text = " Add";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button1
             // 
@@ -265,11 +267,11 @@
             Controls.Add(button1);
             Controls.Add(button4);
             Controls.Add(CatBox);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(CategoryIdTb);
+            Controls.Add(ProductDescTb);
+            Controls.Add(ProductPriceTb);
+            Controls.Add(ProductQtyTb);
+            Controls.Add(ProductNameTb);
+            Controls.Add(ProductIdTb);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -291,11 +293,11 @@
         private Label label2;
         private Label label1;
         private Panel panel2;
-        private TextBox CategoryIdTb;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox ProductIdTb;
+        private TextBox ProductNameTb;
+        private TextBox ProductQtyTb;
+        private TextBox ProductPriceTb;
+        private TextBox ProductDescTb;
         private ComboBox CatBox;
         private Button button4;
         private Button button1;

@@ -115,6 +115,7 @@
             CategoryIdTb.Size = new Size(322, 34);
             CategoryIdTb.TabIndex = 3;
             CategoryIdTb.Text = "CategoryId";
+            CategoryIdTb.TextChanged += CategoryIdTb_TextChanged;
             // 
             // CategoryNameTb
             // 
