@@ -102,7 +102,7 @@ namespace InventoryManagement_System
                 SqlCommand cmd = new SqlCommand(
                     "INSERT INTO customerTbl ( CustName, CustPhone) VALUES ( @CustName, @CustPhone)", con);
 
-                
+
                 cmd.Parameters.AddWithValue("@CustName", CustomerNameTb.Text);
                 cmd.Parameters.AddWithValue("@CustPhone", CustomerPhoneTb.Text);
 
@@ -174,6 +174,11 @@ namespace InventoryManagement_System
             {
                 MessageBox.Show("Lütfen silmek için bir kullanıcı seçin.");
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

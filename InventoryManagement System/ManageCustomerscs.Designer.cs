@@ -43,8 +43,20 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            panel3 = new Panel();
+            label5 = new Label();
+            label6 = new Label();
+            panel4 = new Panel();
+            label7 = new Label();
+            label8 = new Label();
+            panel5 = new Panel();
+            label9 = new Label();
+            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customersGV).BeginInit();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -58,7 +70,7 @@
             panel1.ForeColor = Color.White;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1301, 125);
+            panel1.Size = new Size(1383, 125);
             panel1.TabIndex = 1;
             // 
             // button6
@@ -79,7 +91,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(1252, 0);
+            label3.Location = new Point(1331, 0);
             label3.Name = "label3";
             label3.Size = new Size(49, 54);
             label3.TabIndex = 2;
@@ -163,9 +175,9 @@
             // 
             panel2.BackColor = Color.Crimson;
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 534);
+            panel2.Location = new Point(0, 673);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1301, 23);
+            panel2.Size = new Size(1383, 23);
             panel2.TabIndex = 14;
             // 
             // button1
@@ -223,11 +235,111 @@
             button4.Text = "HOME";
             button4.UseVisualStyleBackColor = false;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.MediumVioletRed;
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(label5);
+            panel3.Location = new Point(372, 543);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(250, 115);
+            panel3.TabIndex = 19;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(0, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(143, 31);
+            label5.TabIndex = 8;
+            label5.Text = "Order Count";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(76, 49);
+            label6.Name = "label6";
+            label6.Size = new Size(85, 31);
+            label6.TabIndex = 9;
+            label6.Text = "Orders";
+            label6.Click += label6_Click;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Green;
+            panel4.Controls.Add(label7);
+            panel4.Controls.Add(label8);
+            panel4.Location = new Point(702, 543);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(250, 115);
+            panel4.TabIndex = 20;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(80, 49);
+            label7.Name = "label7";
+            label7.Size = new Size(97, 31);
+            label7.TabIndex = 9;
+            label7.Text = "Amount";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(0, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(164, 31);
+            label8.TabIndex = 8;
+            label8.Text = "Order Amount";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.DodgerBlue;
+            panel5.Controls.Add(label9);
+            panel5.Controls.Add(label10);
+            panel5.Location = new Point(1039, 543);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(250, 115);
+            panel5.TabIndex = 21;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(80, 49);
+            label9.Name = "label9";
+            label9.Size = new Size(63, 31);
+            label9.TabIndex = 9;
+            label9.Text = "Date";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(0, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(177, 31);
+            label10.TabIndex = 8;
+            label10.Text = "Last Order Date";
+            // 
             // ManageCustomerscs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1301, 557);
+            ClientSize = new Size(1383, 696);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -246,6 +358,12 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customersGV).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -267,5 +385,14 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Panel panel3;
+        private Label label6;
+        private Label label5;
+        private Panel panel4;
+        private Label label7;
+        private Label label8;
+        private Panel panel5;
+        private Label label9;
+        private Label label10;
     }
 }

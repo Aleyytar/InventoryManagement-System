@@ -59,7 +59,7 @@
             panel1.ForeColor = Color.White;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1301, 125);
+            panel1.Size = new Size(1383, 125);
             panel1.TabIndex = 0;
             // 
             // button6
@@ -80,7 +80,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(1252, 0);
+            label3.Location = new Point(1322, 9);
             label3.Name = "label3";
             label3.Size = new Size(49, 54);
             label3.TabIndex = 2;
@@ -207,9 +207,9 @@
             // 
             panel2.BackColor = Color.Crimson;
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 520);
+            panel2.Location = new Point(0, 659);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1301, 37);
+            panel2.Size = new Size(1383, 37);
             panel2.TabIndex = 10;
             // 
             // button1
@@ -241,7 +241,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1301, 557);
+            ClientSize = new Size(1383, 696);
             Controls.Add(label4);
             Controls.Add(panel2);
             Controls.Add(UsersGV);
