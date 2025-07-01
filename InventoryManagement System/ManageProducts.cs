@@ -97,7 +97,12 @@ namespace InventoryManagement_System
 
         private void CategoryGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            ProductIdTb.Text = ProductGV.SelectedRows[0].Cells[0].Value.ToString();
+            ProductNameTb.Text = ProductGV.SelectedRows[0].Cells[1].Value.ToString();
+            ProductQtyTb.Text = ProductGV.SelectedRows[0].Cells[2].Value.ToString();
+            ProductPriceTb.Text = ProductGV.SelectedRows[0].Cells[3].Value.ToString();
+            ProductDescTb.Text = ProductGV.SelectedRows[0].Cells[4].Value.ToString();
+            CatBox.SelectedItem = ProductGV.SelectedRows[0].Cells[5].Value.ToString();
         }
 
         private void ManageProducts_Load(object sender, EventArgs e)
@@ -164,6 +169,70 @@ namespace InventoryManagement_System
 
         private void ProductIdTb_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string selectedCategoryName = CatBox.Text;
+            int catId = -1;
+
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                // 1. Kategori adından CatId'yi al
+                SqlCommand getCatIdCmd = new SqlCommand("SELECT CatId FROM CategoriesTbl WHERE CatName = @CatName", con);
+                getCatIdCmd.Parameters.AddWithValue("@CatName", selectedCategoryName);
+
+                SqlDataReader rdr = getCatIdCmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    catId = Convert.ToInt32(rdr["CatId"]);
+                }
+                rdr.Close();
+
+                if (catId == -1)
+                {
+                    MessageBox.Show("Seçilen kategoriye ait bir ID bulunamadı.");
+                    return;
+                }
+
+                // 2. Güncellenecek ürün ID’si kontrolü (örneğin seçilen satırdan alınabilir)
+                if (!int.TryParse(ProductIdTb.Text, out int productId))
+                {
+                    MessageBox.Show("Geçerli bir ürün ID giriniz.");
+                    return;
+                }
+
+                // 3. Ürünü güncelle
+                SqlCommand updateCmd = new SqlCommand(
+                    "UPDATE ProductssTbl SET " +
+                    "ProductName = @ProductName, " +
+                    "ProductQty = @ProductQty, " +
+                    "ProductPrice = @ProductPrice, " +
+                    "ProductDesc = @ProductDesc, " +
+                    "CatId = @CatId " +
+                    "WHERE ProductId = @ProductId", con);
+
+                updateCmd.Parameters.AddWithValue("@ProductName", ProductNameTb.Text);
+                updateCmd.Parameters.AddWithValue("@ProductQty", Convert.ToInt32(ProductQtyTb.Text));
+                updateCmd.Parameters.AddWithValue("@ProductPrice", Convert.ToInt32(ProductPriceTb.Text));
+                updateCmd.Parameters.AddWithValue("@ProductDesc", ProductDescTb.Text);
+                updateCmd.Parameters.AddWithValue("@CatId", catId);
+                updateCmd.Parameters.AddWithValue("@ProductId", productId);
+
+                updateCmd.ExecuteNonQuery();
+                MessageBox.Show("Ürün başarıyla güncellendi.");
+
+                con.Close();
+                populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
 
         }
     }

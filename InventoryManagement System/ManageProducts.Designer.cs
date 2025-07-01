@@ -204,8 +204,9 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 46);
             button1.TabIndex = 21;
-            button1.Text = " ";
+            button1.Text = " Edit";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
