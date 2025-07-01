@@ -20,6 +20,37 @@ namespace InventoryManagement_System
             InitializeComponent();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-B6S9L8P\SQLEXPRESS;Initial Catalog=inventorymgdb;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;");
+
+        private void fillSearchCombo()
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM CategoriesTbl", con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                DataTable dt = new DataTable();
+                dt.Load(rdr);
+
+                rdr.Close(); // ❗ Eklenmeli
+
+                ProductSearchBox.DataSource = dt;
+                ProductSearchBox.DisplayMember = "CatName";
+                ProductSearchBox.ValueMember = "CatName";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
+        
         void fillCategory()
         {
             try
@@ -110,6 +141,7 @@ namespace InventoryManagement_System
             ProductdataGridStyle();
             fillCategory();
             populate();
+            fillSearchCombo();
 
         }
 
@@ -235,5 +267,69 @@ namespace InventoryManagement_System
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (ProductGV.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM ProductssTbl WHERE ProductId = @ProductId", con);
+                    cmd.Parameters.AddWithValue("@ProductId", ProductGV.SelectedRows[0].Cells[0].Value); // ← Buraya dikkat
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Product Deleted Successfully");
+                    con.Close();
+                    populate(); // listeyi yenile
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen silmek için bir kullanıcı seçin.");
+            }
+        }
+
+        private void ProductSearchBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectedCategory = ProductSearchBox.Text;
+
+                if (string.IsNullOrWhiteSpace(selectedCategory))
+                    return;
+
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT P.ProductId, P.ProductName, P.ProductQty, P.ProductPrice, P.ProductDesc, C.CatName " +
+                    "FROM ProductssTbl P " +
+                    "JOIN CategoriesTbl C ON P.CatId = C.CatId " +
+                    "WHERE C.CatName = @CatName", con);
+
+                cmd.Parameters.AddWithValue("@CatName", selectedCategory);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                ProductGV.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
     }
+
 }

@@ -46,6 +46,8 @@
             button3 = new Button();
             label4 = new Label();
             ProductGV = new DataGridView();
+            ProductSearchBox = new ComboBox();
+            button5 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ProductGV).BeginInit();
             SuspendLayout();
@@ -218,8 +220,9 @@
             button2.Name = "button2";
             button2.Size = new Size(94, 46);
             button2.TabIndex = 22;
-            button2.Text = " ";
+            button2.Text = " Delete";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -231,7 +234,7 @@
             button3.Name = "button3";
             button3.Size = new Size(94, 46);
             button3.TabIndex = 23;
-            button3.Text = " ";
+            button3.Text = " Home";
             button3.UseVisualStyleBackColor = false;
             // 
             // label4
@@ -249,18 +252,45 @@
             // 
             ProductGV.BackgroundColor = Color.White;
             ProductGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ProductGV.Location = new Point(443, 187);
+            ProductGV.Location = new Point(454, 238);
             ProductGV.Name = "ProductGV";
             ProductGV.RowHeadersWidth = 51;
             ProductGV.Size = new Size(917, 350);
             ProductGV.TabIndex = 24;
             ProductGV.CellContentClick += CategoryGV_CellContentClick;
             // 
+            // ProductSearchBox
+            // 
+            ProductSearchBox.Font = new Font("Segoe UI", 12F);
+            ProductSearchBox.ForeColor = Color.Crimson;
+            ProductSearchBox.FormattingEnabled = true;
+            ProductSearchBox.Location = new Point(731, 182);
+            ProductSearchBox.Name = "ProductSearchBox";
+            ProductSearchBox.Size = new Size(322, 36);
+            ProductSearchBox.TabIndex = 26;
+            ProductSearchBox.Text = " Product Category";
+            ProductSearchBox.SelectedIndexChanged += ProductSearchBox_SelectedIndexChanged;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Crimson;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button5.ForeColor = Color.White;
+            button5.Location = new Point(1059, 176);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 46);
+            button5.TabIndex = 27;
+            button5.Text = " Search";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // ManageProducts
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1383, 696);
+            Controls.Add(button5);
+            Controls.Add(ProductSearchBox);
             Controls.Add(label4);
             Controls.Add(ProductGV);
             Controls.Add(button3);
@@ -306,5 +336,7 @@
         private Button button3;
         private Label label4;
         private DataGridView ProductGV;
+        private ComboBox ProductSearchBox;
+        private Button button5;
     }
 }
