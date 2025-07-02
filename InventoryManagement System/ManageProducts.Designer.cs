@@ -48,6 +48,7 @@
             ProductGV = new DataGridView();
             ProductSearchBox = new ComboBox();
             button5 = new Button();
+            button7 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ProductGV).BeginInit();
             SuspendLayout();
@@ -252,7 +253,7 @@
             // 
             ProductGV.BackgroundColor = Color.White;
             ProductGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ProductGV.Location = new Point(454, 238);
+            ProductGV.Location = new Point(439, 224);
             ProductGV.Name = "ProductGV";
             ProductGV.RowHeadersWidth = 51;
             ProductGV.Size = new Size(917, 350);
@@ -284,11 +285,26 @@
             button5.Text = " Search";
             button5.UseVisualStyleBackColor = false;
             // 
+            // button7
+            // 
+            button7.BackColor = Color.Crimson;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button7.ForeColor = Color.White;
+            button7.Location = new Point(1159, 176);
+            button7.Name = "button7";
+            button7.Size = new Size(94, 46);
+            button7.TabIndex = 28;
+            button7.Text = "Refresh";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
+            // 
             // ManageProducts
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1383, 696);
+            Controls.Add(button7);
             Controls.Add(button5);
             Controls.Add(ProductSearchBox);
             Controls.Add(label4);
@@ -338,5 +354,6 @@
         private DataGridView ProductGV;
         private ComboBox ProductSearchBox;
         private Button button5;
+        private Button button7;
     }
 }

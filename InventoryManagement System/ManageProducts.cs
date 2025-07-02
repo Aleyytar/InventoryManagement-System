@@ -50,7 +50,7 @@ namespace InventoryManagement_System
                     con.Close();
             }
         }
-        
+
         void fillCategory()
         {
             try
@@ -330,6 +330,10 @@ namespace InventoryManagement_System
             }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            populate();
+        }
     }
 
 }
