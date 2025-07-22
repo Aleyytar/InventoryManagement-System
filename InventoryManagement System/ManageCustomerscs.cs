@@ -93,7 +93,7 @@ namespace InventoryManagement_System
             CustomerNameTb.Text = customersGV.SelectedRows[0].Cells[1].Value.ToString();
             CustomerPhoneTb.Text = customersGV.SelectedRows[0].Cells[2].Value.ToString();
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT  Count(*) from OrdersTbl WHERE CustId = " + CustomeIdTb.Text + "" , con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT  Count(*) from OrdersTbl WHERE CustId = " + CustomeIdTb.Text + "", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             OrderLabel.Text = dt.Rows[0][0].ToString();
@@ -197,6 +197,13 @@ namespace InventoryManagement_System
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
         }
     }
 }

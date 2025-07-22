@@ -234,6 +234,7 @@
             button4.TabIndex = 18;
             button4.Text = "HOME";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // OrderCountP
             // 

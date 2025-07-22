@@ -191,6 +191,7 @@
             HomeBt.TabIndex = 8;
             HomeBt.Text = "Home";
             HomeBt.UseVisualStyleBackColor = false;
+            HomeBt.Click += HomeBt_Click;
             // 
             // UsersGV
             // 

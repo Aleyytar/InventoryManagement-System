@@ -51,6 +51,7 @@
             TotalPriceLb = new Label();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerListGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProductListGV).BeginInit();
@@ -316,11 +317,26 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.Crimson;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(124, 714);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 46);
+            button3.TabIndex = 43;
+            button3.Text = " Home";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // ManageOrders
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1383, 789);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(TotalPriceLb);
@@ -378,5 +394,6 @@
         private Label TotalPriceLb;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

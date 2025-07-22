@@ -129,7 +129,7 @@ namespace InventoryManagement_System
         {
             UnameTb.Text = UsersGV.SelectedRows[0].Cells[0].Value.ToString();
             FnameTb.Text = UsersGV.SelectedRows[0].Cells[1].Value.ToString();
-            PasswordTb.Text = UsersGV.SelectedRows[0].Cells[2].Value.ToString();    
+            PasswordTb.Text = UsersGV.SelectedRows[0].Cells[2].Value.ToString();
             TelephoneTb.Text = UsersGV.SelectedRows[0].Cells[3].Value.ToString();
 
         }
@@ -184,6 +184,13 @@ namespace InventoryManagement_System
                 MessageBox.Show("Hata: " + ex.Message);
             }
 
+        }
+
+        private void HomeBt_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
         }
     }
 }

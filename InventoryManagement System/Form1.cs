@@ -91,9 +91,9 @@ namespace InventoryManagement_System
             if (dt.Rows[0][0].ToString() == "1")
             {
                 // Giriþ baþarýlý, yeni formu aç
-                ManageCustomerscs cust = new ManageCustomerscs();
-                cust.Show();
-                this.Hide();
+                Home homeForm = new Home();
+                homeForm.Show();
+                this.Hide(); // Mevcut formu gizle
             }
             else
             {

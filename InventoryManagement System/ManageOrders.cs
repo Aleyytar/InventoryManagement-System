@@ -295,5 +295,12 @@ namespace InventoryManagement_System
             ViewOrders viewOrders = new ViewOrders();
             viewOrders.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
+        }
     }
 }
