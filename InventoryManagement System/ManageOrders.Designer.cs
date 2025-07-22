@@ -300,6 +300,7 @@
             button1.TabIndex = 41;
             button1.Text = "Insert Order";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -313,6 +314,7 @@
             button2.TabIndex = 42;
             button2.Text = "View Orders";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // ManageOrders
             // 

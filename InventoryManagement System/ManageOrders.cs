@@ -101,6 +101,7 @@ namespace InventoryManagement_System
         private void label3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
 
         private void ManageOrders_Load(object sender, EventArgs e)
@@ -259,6 +260,40 @@ namespace InventoryManagement_System
         private void OrderGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             OrderIdTb.Text = OrderGV.SelectedRows[0].Cells[0].Value.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(OrderIdTb.Text) || string.IsNullOrWhiteSpace(CustomerIdTb.Text))
+            {
+                MessageBox.Show("Please Enter Order Id and Select Customer");
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO OrdersTbl (OrderId, CustId, OrderDate, TotalAmount,CustName) VALUES (@OrderId, @CustId, @OrderDate, @TotalAmount,@CustName)", con);
+                    cmd.Parameters.AddWithValue("@OrderId", OrderIdTb.Text);
+                    cmd.Parameters.AddWithValue("@CustId", CustomerIdTb.Text);
+                    cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@TotalAmount", Convert.ToInt32(TotalPriceLb.Text.Replace("Total: $", "")));
+                    cmd.Parameters.AddWithValue("@CustName", CustomerNameTb.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Order Added Successfully");
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewOrders viewOrders = new ViewOrders();
+            viewOrders.Show();
         }
     }
 }
