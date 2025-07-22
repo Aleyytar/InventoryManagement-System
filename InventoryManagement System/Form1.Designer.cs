@@ -35,8 +35,8 @@
             label3 = new Label();
             label1 = new Label();
             button1 = new Button();
-            textBoxPassword = new TextBox();
-            textBoxUsername = new TextBox();
+            PasswordTb = new TextBox();
+            UserNameTB = new TextBox();
             label2 = new Label();
             label4 = new Label();
             panel1.SuspendLayout();
@@ -53,8 +53,8 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBoxPassword);
-            panel1.Controls.Add(textBoxUsername);
+            panel1.Controls.Add(PasswordTb);
+            panel1.Controls.Add(UserNameTB);
             panel1.Location = new Point(134, 94);
             panel1.Name = "panel1";
             panel1.Size = new Size(242, 357);
@@ -124,29 +124,29 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // textBoxPassword
+            // PasswordTb
             // 
-            textBoxPassword.BackColor = Color.DodgerBlue;
-            textBoxPassword.BorderStyle = BorderStyle.FixedSingle;
-            textBoxPassword.ForeColor = Color.White;
-            textBoxPassword.Location = new Point(28, 197);
-            textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(193, 27);
-            textBoxPassword.TabIndex = 2;
-            textBoxPassword.Text = "Şifre";
-            textBoxPassword.UseSystemPasswordChar = true;
-            textBoxPassword.UseWaitCursor = true;
+            PasswordTb.BackColor = Color.DodgerBlue;
+            PasswordTb.BorderStyle = BorderStyle.FixedSingle;
+            PasswordTb.ForeColor = Color.White;
+            PasswordTb.Location = new Point(28, 197);
+            PasswordTb.Name = "PasswordTb";
+            PasswordTb.Size = new Size(193, 27);
+            PasswordTb.TabIndex = 2;
+            PasswordTb.Text = "Şifre";
+            PasswordTb.UseSystemPasswordChar = true;
+            PasswordTb.UseWaitCursor = true;
             // 
-            // textBoxUsername
+            // UserNameTB
             // 
-            textBoxUsername.BackColor = Color.DodgerBlue;
-            textBoxUsername.BorderStyle = BorderStyle.FixedSingle;
-            textBoxUsername.ForeColor = Color.White;
-            textBoxUsername.Location = new Point(28, 152);
-            textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.Size = new Size(193, 27);
-            textBoxUsername.TabIndex = 1;
-            textBoxUsername.Text = "Kullanıcı adı";
+            UserNameTB.BackColor = Color.DodgerBlue;
+            UserNameTB.BorderStyle = BorderStyle.FixedSingle;
+            UserNameTB.ForeColor = Color.White;
+            UserNameTB.Location = new Point(28, 152);
+            UserNameTB.Name = "UserNameTB";
+            UserNameTB.Size = new Size(193, 27);
+            UserNameTB.TabIndex = 1;
+            UserNameTB.Text = "Kullanıcı adı";
             // 
             // label2
             // 
@@ -199,8 +199,8 @@
         private Panel panel1;
         private Label label1;
         private Label label2;
-        private TextBox textBoxUsername;
-        private TextBox textBoxPassword;
+        private TextBox UserNameTB;
+        private TextBox PasswordTb;
         private Button button1;
         private CheckBox checkBox1;
         private Label label3;
